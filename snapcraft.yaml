@@ -1,0 +1,28 @@
+name: git-latest
+version: 9.99
+summary: Daily builds of latest git version from https://github.com/git/git.git
+description: See summary
+
+
+apps:
+  git:
+      command: bin/git
+parts:
+    git:
+      plugin: autotools
+      source: https://github.com/git/git.git
+      filesets:
+        git:
+         - bin/*
+         - libexec/*
+         - lib/*
+         - share/*
+         - usr/local/*
+      build-packages: [gettext, libssl-dev, libcurl4-openssl-dev, libexpat1-dev]
+      snap:
+      - $git
+
+
+
+      #stage-packages:
+      #- Depends: libcurl3-gnutls (>= 7.16.2), libexpat1 (>= 2.0.1), libpcre3, zlib1g (>= 1:1.2.0), perl-modules, liberror-perl, git-man (> 1:2.7.4), git-man (< 1:2.7.4-.)
