@@ -1,28 +1,42 @@
 name: git-latest
-version: 9.99
+version: 99.9git
 summary: Daily builds of latest git version from https://github.com/git/git.git
 description: See summary
-architecture: [amd64, armhf, aarch64]
+#architecture: [amd64, armhf, aarch64]
 
 apps:
   git:
-      command: bin/git
+    command: bin/git
+  git-cvsserver:
+    command: bin/git-cvsserver
+  gitk:
+    command: bin/gitk
+  git-receive-pack:
+    command: bin/git-receive-pack
+  git-shell:
+    command: bin/git-shell
+  git-upload-archive:
+    command: git-upload-archive
+  git-upload-pack:
+    command: git-upload-pack
+
 parts:
     git:
       plugin: autotools
-      source: https://github.com/git/git.git
-      filesets:
-        git:
-         - bin/*
-         - libexec/*
-         - lib/*
-         - share/*
-         - usr/local/*
+      source: https://github.com/git/git
+      source-type: git
       build-packages: [gettext, libssl-dev, libcurl4-openssl-dev, libexpat1-dev]
-      snap:
-      - $git
+#      filesets:
+#        git:
+#         - bin/*
+#         - libexec/*
+#         - lib/*
+#         - share/*
+#         - usr/local/*
+#      stage:
+#        - $git
+#      snap:
+#        - $git
 
 
-
-      #stage-packages:
-      #- Depends: libcurl3-gnutls (>= 7.16.2), libexpat1 (>= 2.0.1), libpcre3, zlib1g (>= 1:1.2.0), perl-modules, liberror-perl, git-man (> 1:2.7.4), git-man (< 1:2.7.4-.)
+#- Depends: libcurl3-gnutls (>= 7.16.2), libexpat1 (>= 2.0.1), libpcre3, zlib1g (>= 1:1.2.0), perl-modules, liberror-perl, git-man (> 1:2.7.4), git-man (< 1:2.7.4-.)
