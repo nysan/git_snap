@@ -2,7 +2,7 @@ name: git-latest
 version: 9.99
 summary: Daily builds of latest git version from https://github.com/git/git.git
 description: See summary
-
+architecture: [amd64, armhf, aarch64]
 
 apps:
   git:
