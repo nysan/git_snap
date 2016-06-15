@@ -7,18 +7,24 @@ description: See summary
 apps:
   git:
     command: bin/git
+    plugs: [network, home]
   git-cvsserver:
     command: bin/git-cvsserver
+    plugs: [network, home]
   gitk:
     command: bin/gitk
   git-receive-pack:
     command: bin/git-receive-pack
+    plugs: [network, home]
   git-shell:
     command: bin/git-shell
+    plugs: [network, home]
   git-upload-archive:
     command: git-upload-archive
+    plugs: [network, home]
   git-upload-pack:
     command: git-upload-pack
+    plugs: [network, home]
 
 parts:
     git:
@@ -26,6 +32,7 @@ parts:
       source: https://github.com/git/git
       source-type: git
       build-packages: [gettext, libssl-dev, libcurl4-openssl-dev, libexpat1-dev]
+
 #      filesets:
 #        git:
 #         - bin/*
